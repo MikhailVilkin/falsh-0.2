@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="@{'/adminPage'}">Admin <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" th:href="@{'/adminPage/seeProducts'}">Products</a>
+            <a class="nav-item nav-link" th:href="@{'/adminPage/addProduct'}">Add product</a>
+            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+    </div>
+</nav>
+
+Product [id=<span th:text="${product.id}">name</span>]</body></br>
+
+Название товара: <span th:text="${product.productName}"></span> <br/><br/>
+Цвет: <span th:text="${product.color}"></span> <br/><br/>
+Цена (руб.коп): <span th:text="${product.price}"></span> <br/><br/>
+Размер: <span th:text="${product.size}"></span> <br/><br/>
+Количество: <span th:text="${product.amount}"></span> <br/><br/>
+Описание: <span th:text="${product.description}"></span> <br/><br/>
+
+<img th:src="|data:image/png;base64,${images[0]}|"/>
+<img th:src="|data:image/png;base64,${images[1]}|"/>
+<img th:src="|data:image/png;base64,${images[2]}|"/>
+<img th:src="|data:image/png;base64,${images[3]}|"/>
+
+
+
+</body>
+</html>

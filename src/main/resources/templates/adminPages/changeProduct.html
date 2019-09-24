@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление товара</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body onload="updateSize();">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="@{'/adminPage'}">Admin </a>
+            <a class="nav-item nav-link" th:href="@{'/adminPage/seeProducts'}">Products</a>
+            <a class="nav-item nav-link" th:href="@{'/adminPage/addProduct'}">Add product <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+    </div>
+</nav>
+<br/>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-8 text-left">
+            <form method="POST" action="/adminPage/addProduct/submit" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="productNameControlInput" class="col-sm-2 col-form-label">Название товара</label>
+                    <input input type="text" name="productName" class="form-control" id="productNameControlInput" placeholder="название товара">
+                </div>
+                <div class="form-group">
+                    <label for="colorControlInput" class="col-sm-2 col-form-label">Цвет</label>
+                    <input input type="text" name="color" class="form-control" id="colorControlInput" placeholder="цвет">
+                </div>
+                <div class="form-group">
+                    <label for="priceControlInput" class="col-sm-2 col-form-label">Цена</label>
+                    <input input type="text" name="price" class="form-control" id="priceControlInput" placeholder="9999.99">
+                </div>
+                <div class="form-group">
+                    <label for="sizeControlSelect" class="col-sm-2 col-form-label">Размер</label>
+                    <select type="text" name="size" class="form-control" id="sizeControlSelect">
+                        <option>XS</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                        <option>XXL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="amountControlInput" class="col-sm-2 col-form-label">Количество</label>
+                    <input input type="text" name="amount" class="form-control" id="amountControlInput">
+                </div>
+                <div class="form-group">
+                    <label for="descriptionTextArea" class="col-sm-2 col-form-label">Описание</label>
+                    <textarea type="text" name="description" class="form-control" id="descriptionTextArea" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="fileInputControl" class="col-sm-2 col-form-label">Изображения</label>
+                    <input type="file" class="form-control-file" id="fileInputControl" name="images" onchange="updateSize();" multiple>
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Добавить товар</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cписок продукции</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="@{'/adminPage'}">Admin </a>
+            <a class="nav-item nav-link" th:href="@{'/adminPage/seeProducts'}">Products <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" th:href="@{'/adminPage/addProduct'}">Add product</a>
+            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+    </div>
+</nav>
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>id</th>
+        <th>Название товара</th>
+        <th>Цвет</th>
+        <th>Цена</th>
+        <th>Размер</th>
+        <th>Количество</th>
+        <th>Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="product : ${products}">
+        <tr>
+            <td><a th:href="@{'/adminPage/seeProduct/' + ${product.id}}"><span th:text="${product.id}"></span></a></td>
+            <td><span th:text="${product.productName}"></span></td>
+            <td><span th:text="${product.color}"></span></td>
+            <td><span th:text="${product.price}"></span></td>
+            <td><span th:text="${product.size}"></span></td>
+            <td><span th:text="${product.amount}"></span></td>
+            <td><a>Редактировать</a>
+                <a th:href="@{'/adminPage/seeProducts/delete/' + ${product.id}}"
+                   onclick="return confirm('Are you sure')">Удалить</a></td>
+        </tr>
+    </div>
+    </tbody>
+</table>
+
+
+
+
+</body>
+</html>
